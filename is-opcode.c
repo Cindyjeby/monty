@@ -4,7 +4,7 @@
  * @s: string to be checked
  * Return: 1 (success), 0 (failed)
  */
-inr is_digit(char *s)
+int is_digit(char *s)
 {
 	if (!s || *s == '\0')
 		return (0);

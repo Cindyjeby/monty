@@ -53,7 +53,7 @@ stack_t *add_node(stack_t **s, const int n)
 		free(mpya);
 		return (NULL);
 	}
-	mpya-> = n;
+	mpya->n  = n;
 	mpya->next = *s;
 	mpya->prev = NULL;
 
@@ -77,7 +77,7 @@ size_t print_stack(const stack_t *s)
 		s = s->next;
 		i++;
 	}
-	return (k);
+	return (i);
 }
 /**
  * free_stack - function that frees a linked list

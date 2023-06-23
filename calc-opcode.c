@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * add - function that adds the first two nodes of a stack
+ * _add - function that adds the first two nodes of a stack
  * @s: the given stack by main
  * @line: amount od lines
  * Return: void
  */
-void add(stack_t **s, unsigned int line)
+void _add(stack_t **s, unsigned int line)
 {
 	int amount;
 
@@ -19,12 +19,12 @@ void add(stack_t **s, unsigned int line)
 	(*s)->n = amount;
 }
 /**
- * sub - function that subtracts the first two nodes of the stack
+ * _sub - function that subtracts the first two nodes of the stack
  * @s: stack given by main
  * @line: amount of lines in the stack
  * Return: void
  */
-void sub(stack_t **s, unsigned int line)
+void _sub(stack_t **s, unsigned int line)
 {
 	int amount;
 
@@ -38,12 +38,12 @@ void sub(stack_t **s, unsigned int line)
 	(*s)->n = amount;
 }
 /**
- * mul - function that multiplies the top stacks
+ * _mul - function that multiplies the top stacks
  * @s: stack given by main
  * @line: amount of lines
  * Return: void
  */
-void mul(stack_t **s, unsigned int line)
+void _mul(stack_t **s, unsigned int line)
 {
 	int amount;
 
@@ -54,16 +54,16 @@ void mul(stack_t **s, unsigned int line)
 		return;
 	}
 	amount = ((*s)->next->n) * ((*s)->n);
-	pop(s, line):
+	pop(s, line);
 		(*s)->n = amount;
 }
 /**
- * div - function that divides the next top values
+ * _div - function that divides the next top values
  * @s: stack given by main
  * @line: amount of line
  * Return: void
  */
-void div(stack_t **s, unsigned int line)
+void _div(stack_t **s, unsigned int line)
 {
 	int amount;
 
@@ -92,7 +92,7 @@ void div(stack_t **s, unsigned int line)
 void mod(stack_t **s, unsigned int line)
 {
 	int amount;
-	if (!s || !**s || !((*s)->next))
+	if (!s || !*s || !((*s)->next))
 	{
 		fprintf(stderr, "L%d: cannot mod, satck too short\n", line);
 		exit(EXIT_FAILURE);
@@ -106,5 +106,5 @@ void mod(stack_t **s, unsigned int line)
 	}
 	amount = ((*s)->next->n) % ((*s)->n);
 	pop(s, line);
-	(*s)-> = amount;
+	(*s)->n = amount;
 }

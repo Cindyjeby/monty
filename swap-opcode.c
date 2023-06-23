@@ -19,7 +19,7 @@ void swap(stack_t **s, unsigned int line)
 	j = k->n;
 	k->n = j;
 
-	k-> = k->next->n;
+	k->n = k->next->n;
 	k->next->n = j;
 }
 /**

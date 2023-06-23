@@ -7,26 +7,26 @@
 #include <string.h>
 #include <ctype.h>
 
-#define INSTRUCTIONS
-{
-	{"push", push},
-	{"pall", pall},
-	{"pint", pint},
-	{"pop", pop},
-	{"swap", swap},
-	{"nop", nop},
-	{"div", div},
-	{"mul", mul},
-	{"add", add},
-	{"sub", sub},
-	{"mod", mod},
-	{"pchar", pchar},
-	{"pstr", pstr},
-	{"rotr", rotr},
-	{"rot1", rot1},
-	{
-		NULL, NULL
-	}
+#define INSTRUCTIONS \
+{ \
+	{"push", push}, \
+	{"pall", pall}, \
+	{"pint", pint}, \
+	{"pop", pop}, \
+	{"swap", swap}, \
+	{"nop", nop}, \
+	{"div", _div}, \
+	{"mul", _mul}, \
+	{"add", _add}, \
+	{"sub", _sub}, \
+	{"mod", mod}, \
+	{"pchar", pchar}, \
+	{"pstr", pstr}, \
+	{"rotr", rotr}, \
+	{"rot1", rot1}, \
+	{ \
+		NULL, NULL \
+	} \
 }
 /**
  * struct stack_s _ doubly linked list rep of a stack or queue
@@ -70,11 +70,12 @@ help global;
 void push(stack_t **s, unsigned int line);
 void pint(stack_t **s, unsigned int line);
 void pop(stack_t **s, unsigned int line);
+void pall(stack_t **s, unsigned int line __attribute__((unused)));
 
-void add(stack_t **s, unsigned int line);
-void sub(stack_t **s, unsigned int line);
-void mul(stack_t **s, unsigned int line);
-void div(stack_t **s, unsigned int line);
+void _add(stack_t **s, unsigned int line);
+void _sub(stack_t **s, unsigned int line);
+void _mul(stack_t **s, unsigned int line);
+void _div(stack_t **s, unsigned int line);
 void mod(stack_t **s, unsigned int line);
 
 void pchar(stack_t **s, unsigned int line);
@@ -91,10 +92,10 @@ void free_stack(stack_t *s);
 void rotr(stack_t **s, unsigned int line);
 void rot1(stack_t **s, unsigned int line);
 
-void swap(stack_t **s, unsigend int line);
+void swap(stack_t **s, unsigned int line);
 void nop(stack_t **s, unsigned int line);
 
-void opcode(stack_t **s, char *s, unsigned int line);
+void opcode(stack_t **s, char *str, unsigned int line);
 
 int main(int argc, char **argv);
 void file_error(char *argv);

@@ -23,7 +23,7 @@ void push(stack_t **s, unsigned int line)
 	}
 	else
 	{
-		if (!queue_node(s, atoi(global.argument)))
+		if (!queue(s, atoi(global.argument)))
 		{
 			exit(EXIT_FAILURE);
 		}
@@ -49,10 +49,10 @@ void pint(stack_t **s, unsigned int line)
 {
 	if (!s || !(*s))
 	{
-		fprint(stderr, "L%d: can not pint, stack empty\n", line);
+		fprintf(stderr, "L%d: can not pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
-	fprintf("%d\n", (*s)->n);
+	fprintf(stdout, "%d\n", (*s)->n);
 }
 /**
  * pop - function that deletes the very top element od a stack
@@ -67,12 +67,12 @@ void pop(stack_t **s, unsigned int line)
 	if (!s || !*s)
 	{
 		fprintf(stderr, "L%u: can not pop an empty stack\n", line);
-		exit(EXIT_FAILURE):
+		exit(EXIT_FAILURE);
 	}
 	k = (*s)->next;
 	free(*s);
 	*s = k;
 	if (!*s)
 		return;
-	(*s)->prev = NULL:
+	(*s)->prev = NULL;
 }

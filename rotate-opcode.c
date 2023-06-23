@@ -19,10 +19,14 @@ void rotr(stack_t **s, unsigned int line)
 		down = down->next;
 
 	prev = down->prev;
-	down->next = *s;
-	down->prev = NULL;
-	(*s)->prev = down;
-	*s = down;
+
+	if (prev != NULL)
+	{
+		down->next = *s;
+		down->prev = NULL;
+		(*s)->prev = down;
+		*s = down;
+	}
 }
 /**
  * rot1 - function that rotates the first element of the stack

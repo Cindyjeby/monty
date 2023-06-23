@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	size_t buf_len = 0;
 	char *buf = NULL;
 	char *str = NULL;
-	stack_t *str = NULL;
+	stack_t *s = NULL;
 	unsigned int line = 1;
 
 	global.data_struct = 1;
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 		opcode(&s, str, line);
 		line++;
 	}
-	fee(buf);
+	free(buf);
 	free_stack(s);
 	fclose(file);
 	exit(EXIT_SUCCESS);

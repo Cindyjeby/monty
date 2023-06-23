@@ -13,7 +13,7 @@ void pchar(stack_t **s, unsigned int line)
 		exit(EXIT_FAILURE);
 		return;
 	}
-	if (isascii((*s)->n) == 0)
+	if ((*s)->n < 0 || (*s)->n > 127)
 	{
 		fprintf(stderr, "L%d: cannot pchar, value out of range\n", line);
 		exit(EXIT_FAILURE);

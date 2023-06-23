@@ -1,36 +1,36 @@
 #include "monty.h"
 /**
- * op_code - function in charge of running builtins
+ * opcode - function in charge of running builtins
  * @s: given by main
- * @s: string to compare
+ * @str: string to compare
  * @line: amount of lines
  * Return: void
  */
-void op_code(stack_t **s, char *s, unsigned int line)
+void opcode(stack_t **s, char *str, unsigned int line)
 {
 	int k = 0;
 
 	instruction_t op[] = INSTRUCTIONS;
 
-	if (!strcmp(s, "stack"))
+	if (!strcmp(str, "stack"))
 	{
 		global.data_struct = 1;
 		return;
 	}
-	if (!strcmp(s, "queue"))
+	if (!strcmp(str, "queue"))
 	{
 		global.data_struct = 0;
 		return;
 	}
 	while (op[k].opcode)
 	{
-		if (strcmp(op[k].opcode, s) == 0)
+		if (strcmp(op[k].opcode, str) == 0)
 		{
-			op[k].f(stack, line);
+			op[k].f(s, line);
 			return;
 		}
 		k++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line, s);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line, str);
 	exit(EXIT_FAILURE);
 }
