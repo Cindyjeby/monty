@@ -23,7 +23,7 @@ void pchar(stack_t **s, unsigned int line)
 }
 /**
  * pstr - function that prints the contents of a stack_t stack as a string
- * @stack: stack given by main
+ * @s: stack given by main
  * @line: amount of error messages
  * Return: void
  */

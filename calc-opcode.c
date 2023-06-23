@@ -12,7 +12,7 @@ void _add(stack_t **s, unsigned int line)
 	if (!s || !*s || !((*s)->next))
 	{
 		fprintf(stderr, "L%d: can not add, stack tooshort\n", line);
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	amount = ((*s)->next->n) + ((*s)->n);
 	pop(s, line);
@@ -92,6 +92,7 @@ void _div(stack_t **s, unsigned int line)
 void mod(stack_t **s, unsigned int line)
 {
 	int amount;
+
 	if (!s || !*s || !((*s)->next))
 	{
 		fprintf(stderr, "L%d: cannot mod, satck too short\n", line);
